@@ -30,7 +30,7 @@ class Complex{
 
 
 }
-public class fourthQuestion {
+public class FourthQuestion {
     public static void main(String[] args) {
         // Declaration
         double r1 , r2 , c1 , c2;
