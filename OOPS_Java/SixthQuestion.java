@@ -17,7 +17,7 @@ public class SixthQuestion {
         // char[] arr = new char[myString.length()];
         // Copy character by character into array
         for (int i = 0; i < myString.length(); i++) {
-            this.arr[i] = myString.charAt(i);
+            arr[i] = myString.charAt(i);
         }
         
     }
