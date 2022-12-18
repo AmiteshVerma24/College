@@ -3,7 +3,7 @@
 // Defining the stack DATA STRUCTURE
 struct stack {
     int top;
-    int arr[max];
+    char arr[max];
 };
 // Creating stack tyoe object
 struct stack s;
@@ -26,16 +26,13 @@ int underFlow()
     }
 }
 // Push value to stack
-void push()
+void push(char ch)
 {
     if (isOverflow()) {
         printf("THE STACK IS FULL. CAN'T ENTER! \n");
         return;
     } else {
-        int num;
-        printf("Enter the number to be pushed: ");
-        scanf("%d", &num);
-        s.arr[++s.top] = num;
+        s.arr[++s.top] = ch;
     }
 }
 // Pop items from stack
@@ -53,22 +50,60 @@ void display()
 {
     printf("THE STACK IS: \n");
     for ( int i = 0; i <= s.top; i++) {
-        printf("%d ", s.arr[i]);
+        printf("%c ", s.arr[i]);
     }
     printf("\n");
 }
 // Main function
 void main()
 {
+    char str[] = "{]()";
+    int flag = 0;
     s.top = -1;
-
-    for(int i = 0 ; i < 6 ; i++) {
-        push();
+    for (int i = 0 ; i < max ; i++) {
         display();
+        if (str[i] == '(' || str[i] == '{' || str[i] == '[') {
+            push(str[i]);
+        }
+        else if (str[i] == ')'){
+            if (s.arr[s.top] != '('){
+                flag += 1;
+            }
+            else{
+                pop();
+            }
+        }
+         else if (str[i] == ']'){
+            if (s.arr[s.top] != '['){
+                flag += 1;
+            }
+            else{
+                pop();
+            }
+        }
+        else{
+            if (s.arr[s.top] != '{'){
+                flag += 1;
+            }
+            else{
+                pop();
+            }
+        }
     }
-    for(int i = 0 ; i < 10 ; i++){
-        display();1
-        
-        pop();
+    if (s.arr[s.top] == -1){
+        printf("VALID\n");
+    }
+    else{
+        flag += 1;
+    }
+    if (flag != 0){
+        printf("INVALID\n");
     }
 }
+// for (int i = 0 ; i < max ; i++)
+// {
+//     if (s.arr[i] == '(' || s.arr[i] == '{' || s.arr[i] == '[') {
+//         printf("%c \n",s.arr[i]);
+//         push(s.arr[i]);
+//     }
+// }
