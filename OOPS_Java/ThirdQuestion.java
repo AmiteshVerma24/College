@@ -70,7 +70,7 @@ class ThirdQuestion{
             choice = sc.nextInt();
             switch (choice){
                 case 1:
-                    System.out.println("Enter the element to be pushed:- ");
+                    System.out.print("Enter the element to be pushed:- ");
                     int num = sc.nextInt();
                     myStack.push(num);
                     break;
