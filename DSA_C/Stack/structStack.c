@@ -100,10 +100,3 @@ void main()
         printf("INVALID\n");
     }
 }
-// for (int i = 0 ; i < max ; i++)
-// {
-//     if (s.arr[i] == '(' || s.arr[i] == '{' || s.arr[i] == '[') {
-//         printf("%c \n",s.arr[i]);
-//         push(s.arr[i]);
-//     }
-// }

@@ -1,22 +1,18 @@
 // Online C compiler to run C program online
 #include <stdio.h>
 #define max 6
-
 struct queue {
     int rear;
     int front;
     int arr[max];
 };
-
 struct queue q;
-
 int isEmpty(){
     if (q.rear == -1 && q.front == -1){
         return 1;
     }
     return 0;
 }
-
 void push(int x){
     // Check empty
     if (isEmpty() == 1){
@@ -33,7 +29,6 @@ void push(int x){
     }
     q.arr[q.rear] = x;
 }
-
 void pop(){
     // If empty
     if (isEmpty() == 1){
@@ -48,14 +43,12 @@ void pop(){
         q.front++;
     }
 }
-
 void display(){
     for (int i = q.front ; i <= q.rear ; i++){
         printf("%d ", q.arr[i]);
     }
     printf("\n");
 }
-
 int main() {
     q.rear = -1;
     q.front = -1;

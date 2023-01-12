@@ -1,0 +1,19 @@
+Pointers:
+
+Pointers (pointer variables) are special variables that are used to store addresses rather than values.
+int* p;  --> int data type ka address store karne ke liye pointer p
+Assigning values to Pointers
+int c = 8;
+int *ptr = &c;   --> This would store address of variable int c
+
+Typedef:
+
+It is used to create a name for structure being used.
+
+typedef struct person{
+    char name[50];
+    int age;
+    int height;
+} personal_info
+
+The to create an object of this struct we can just write personal_info p1
