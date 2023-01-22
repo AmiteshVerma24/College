@@ -8,6 +8,7 @@ struct queue {
 };
 struct queue q;
 int isEmpty(){
+    
     if (q.rear == -1 && q.front == -1){
         return 1;
     }
@@ -50,16 +51,35 @@ void display(){
     printf("\n");
 }
 int main() {
-    q.rear = -1;
-    q.front = -1;
-    push(3);
-    display();
-    push(4);
-    display();
-    push(15);
-    display();
-    pop();
-    display();
+    q.rear = q.front = -1;
+    int choice, isContinue = 0;
+    while (isContinue == 0){
+            printf("What would you like to do? \n 1. Enter a number \n 2. Remove a nnumber \n 3. Display numbers \n 4. EXIT \nEnter your choice:- ");
+            scanf("%d",&choice);
+            switch (choice){
+                case 1:
+                    printf("Enter the number:- ");
+                    int num;
+                    scanf("%d", &num);
+                    push(num);
+                    break;
+                case 2:
+                    pop();
+                    break;
+                case 3:
+                    display();
+                    break;
+                case 4:
+                    isContinue = 1;
+                    printf("EXITED THE LOOP");
+                    break;
+                default:
+                    printf("INVALID CHOICE");
+                    
+            }
+
+        }
+    return 0;
     return 0;
 }
 

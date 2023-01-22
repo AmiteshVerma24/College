@@ -1,10 +1,10 @@
-// Online C compiler to run C program online
 #include <stdio.h>
+#include <string.h>
 #define max 6
 struct queue {
     int front;
     int rear;
-    int arr[max];
+    char arr[max][20];
 };
 
 struct queue q;
@@ -16,7 +16,7 @@ int isFull(){
     return 0;
 }
 
-void push(int x){
+void APPEND(char * name){
     // If empty
     if (q.rear == -1 && q.front ==-1){
         q.rear = q.front = 0;
@@ -29,10 +29,10 @@ void push(int x){
     else{
         q.rear = (q.rear+1)%max;
     }
-    q.arr[q.rear] = x;
+    strcpy(q.arr[q.rear], name);
 }
 
-void pop(){
+void REMOVE(){
     // Is empty
     if (q.front == -1 && q.rear == -1){
         printf("CANT POP, QUEUE EMPTY");
@@ -47,31 +47,34 @@ void pop(){
     }
 }
 
-void display(){
+void DISPLAY(){
+    printf("\n");
     for (int i = q.front ; i <= q.rear ; i = (i+1)%max){
-        printf("%d ", q.arr[i]);
+        printf("%s ", q.arr[i]);
     }
+    printf("\n");
     printf("\n");
 }
 
 int main() {
+    // Write C code here
     q.rear = q.front = -1;
     int choice, isContinue = 0;
     while (isContinue == 0){
-            printf("What would you like to do? \n 1. Enter a number \n 2. Remove a nnumber \n 3. Display numbers \n 4. EXIT \nEnter your choice:- ");
+            printf("What would you like to do? \n 1. Append a name \n 2. Remove a name \n 3. Display names \n 4. EXIT \nEnter your choice:- ");
             scanf("%d",&choice);
             switch (choice){
                 case 1:
-                    printf("Enter the number:- ");
-                    int num;
-                    scanf("%d", &num);
-                    push(num);
+                    printf("Enter the name:- ");
+                    char name[20];
+                    scanf("%s", name);
+                    APPEND(name);
                     break;
                 case 2:
-                    pop();
+                    REMOVE();
                     break;
                 case 3:
-                    display();
+                    DISPLAY();
                     break;
                 case 4:
                     isContinue = 1;
@@ -83,6 +86,7 @@ int main() {
             }
 
         }
-
+    
+    
     return 0;
 }
