@@ -1,4 +1,4 @@
-package OOPS_Java;
+// package OOPS_Java;
 import java.util.*;
 
 public class SixthQuestion {

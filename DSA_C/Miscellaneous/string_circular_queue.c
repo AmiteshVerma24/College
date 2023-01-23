@@ -57,7 +57,6 @@ void DISPLAY(){
 }
 
 int main() {
-    // Write C code here
     q.rear = q.front = -1;
     int choice, isContinue = 0;
     while (isContinue == 0){

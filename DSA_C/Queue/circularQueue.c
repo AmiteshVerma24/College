@@ -30,6 +30,7 @@ void push(int x){
         q.rear = (q.rear+1)%max;
     }
     q.arr[q.rear] = x;
+    printf("Rear: %d, Front: %d\n",q.rear,q.front);
 }
 
 void pop(){
@@ -45,12 +46,14 @@ void pop(){
     else{
         q.front = (q.front+1)%max;
     }
+    printf("Rear: %d, Front: %d\n",q.rear,q.front);
 }
 
 void display(){
     for (int i = q.front ; i <= q.rear ; i = (i+1)%max){
         printf("%d ", q.arr[i]);
     }
+    printf("Rear: %d, Front: %d\n",q.rear,q.front);
     printf("\n");
 }
 
