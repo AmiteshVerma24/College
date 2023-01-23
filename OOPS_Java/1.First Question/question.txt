@@ -1,0 +1,5 @@
+Write Java programs
+a. To print Fibonacci series without using recursion and using recursion. (concept of
+loops, data types)
+b. To check prime numbers.
+c. To sort an array elements using bubble sort algorithm.
