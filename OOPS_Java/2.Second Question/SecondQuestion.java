@@ -4,7 +4,8 @@ import java.util.*;
 a. getinput () to get input from the user
 b. Deposit () method which takes the amount to be deposited in to his/her account and
 do the calculation.
-c. Withdraw () method which gets the amount to be withdrawn from his/her account. d. Print the appropriate results. */
+c. Withdraw () method which gets the amount to be withdrawn from his/her account. 
+d. Print the appropriate results. */
 class Account{
     // Declaring Variables
     private int accNum;

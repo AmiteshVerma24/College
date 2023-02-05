@@ -1,8 +1,9 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "java.project.sourcePaths": [
-        "OOPS_Java/Lab Questions/src",
         "OOPS_Java/5.Fifth Question",
-        "OOPS_Java/1.First Question"
+        "OOPS_Java/10.Tenth Question",
+        "OOPS_Java/1.First Question",
+        "OOPS_Java/4.Fourth Question"
     ]
 }
