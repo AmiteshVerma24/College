@@ -8,9 +8,9 @@ public class ise_department extends faculty implements department {
         Scanner sc = new Scanner(System.in);
         // Taking number of faculties of the department as input
         System.out.print("Enter the number of faculties in ISE department:- ");
-        number_of_faculty = sc.nextInt();
+        this.number_of_faculty = sc.nextInt();
         // Creating an array to store their details
-        faculty_list = new faculty[this.number_of_faculty];
+        this.faculty_list = new faculty[this.number_of_faculty];
         for (int i = 0 ; i < this.number_of_faculty ; i++){
             this.faculty_list[i] = new faculty();
         }
@@ -48,7 +48,6 @@ public class ise_department extends faculty implements department {
     @Override
     public void printdata() {
         for (int i = 0 ; i < this.number_of_faculty ; i++){
-
             System.out.format("\n********* FACULTY - %d *********\n",i+1);
             System.out.format("Name:- %s\n",this.faculty_list[i].name);
             System.out.format("Designation:- %s\n",this.faculty_list[i].designation);
