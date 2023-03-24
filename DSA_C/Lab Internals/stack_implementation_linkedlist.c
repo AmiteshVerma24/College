@@ -29,8 +29,6 @@ void push(data){
         }
         temp->next = new_node;
         new_node->next = NULL;    
-             
-
     }
     
 }
