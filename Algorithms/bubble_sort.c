@@ -56,7 +56,7 @@ int main()
     end = clock();
     printf("\nArray after sorting is:- ");
     print_array(arr, size);
-    total_t = (end - start) / CLOCKS_PER_SEC;
+    total_t = (end - start) / 1000;                        // We get the answer in milli seconds
     printf("\nTime taken to sort array is: %lf", total_t);
     printf("\n==============================================================================\n");
 }
@@ -65,3 +65,4 @@ int main()
 // from the internal quartz clock of the CPU
 // Now to convert to seconds we divide by clocks per second which is the number of clock ticks passes in a
 // second
+// For a 32 bit system clocks per cycle is of order 1000000
