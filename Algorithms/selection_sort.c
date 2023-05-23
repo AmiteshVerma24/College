@@ -5,18 +5,19 @@
 
 void selection_sort(int a[], int s)
 {
-    for (int i = 0; i < s; i++)
-    {
-        for (int j = 0; j < s - i - 1; j++)
-        {
-            if (a[j] > a[j + 1])
-            {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-            }
-        }
-    }
+    int min_index;
+	int temp;
+	for (int i = 0 ; i < s ; i++){
+		min_index = i;
+		for(int j =  i+1 ; j < s ; j++){
+			if(a[j] < a[min_index]){
+				min_index = j;
+			}
+		}
+		temp = a[min_index];
+		a[min_index] =  a[i];
+		a[i] = temp;	
+	}
 }
 
 void print_array(int a[], int s)

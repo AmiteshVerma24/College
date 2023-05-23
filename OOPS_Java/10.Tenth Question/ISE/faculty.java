@@ -24,4 +24,3 @@ public class faculty{
         this.number_research_consultancy_projs = number_research_consultancy_projs;
     }
 }
-

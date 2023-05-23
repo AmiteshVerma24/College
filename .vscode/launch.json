@@ -3,6 +3,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "queue",
+            "request": "launch",
+            "mainClass": "queue",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
+            "name": "lambda",
+            "request": "launch",
+            "mainClass": "lambda",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
+            "name": "MyStrings",
+            "request": "launch",
+            "mainClass": "MyStrings",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
+            "name": "Strings",
+            "request": "launch",
+            "mainClass": "Strings",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
             "name": "Launch FourthQuestion",
             "request": "launch",
             "mainClass": "FourthQuestion",

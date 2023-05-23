@@ -1,7 +1,7 @@
 package ISE;
 import java.util.Scanner;
 
-public class ise_department extends faculty implements department {
+public class ISE_department extends faculty implements department {
     @Override
     public void readdata() {
         // Defining the scanner object to take input
