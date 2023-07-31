@@ -1,18 +1,22 @@
 #include<stdio.h>
 #include<string.h>
+#include <stdbool.h>
+#define MAX 9999
 struct process{
     char process_id [10];
     int arrival_time;
     int burst_time;
+    int priority;
     int wait_time;
     int turn_around_time;
+    bool visited;
 };
 
 int main(){
     // Temp variables for swapping
-    int temp_at, temp_bt;
+    int temp_at, temp_bt, temp_priority;
     char temp_id[10];
-    int wait_time = 0;
+    int elapsed_time = 0;
 
     // Taking input for number of processes
     int number_of_processes;
@@ -27,7 +31,9 @@ int main(){
         scanf("%d", &process_queue[i].burst_time);
 printf("Enter the arrival time:- ");
 scanf("%d", &process_queue[i].arrival_time);
-
+        printf("Enter the priority:- ");
+        scanf("%d", &process_queue[i].priority);
+        process_queue[i].visited = false;
     }
     // Now we will sort the processes in the array based on their arrival time
     for(int i = 0 ; i < number_of_processes ; i++){
@@ -36,26 +42,58 @@ scanf("%d", &process_queue[i].arrival_time);
                 strcpy(temp_id , process_queue[j].process_id);
                 temp_at = process_queue[j].arrival_time;
                 temp_bt = process_queue[j].burst_time;
+                temp_priority = process_queue[j].priority;
+
                 strcpy(process_queue[j].process_id , process_queue[j+1].process_id);
                 process_queue[j].arrival_time = process_queue[j+1].arrival_time;
                 process_queue[j].burst_time = process_queue[j+1].burst_time;
+                process_queue[j].priority = process_queue[j+1].priority;
+
                 strcpy(process_queue[j+1].process_id , temp_id);
                 process_queue[j+1].arrival_time = temp_at;
                 process_queue[j+1].burst_time = temp_bt;
+                process_queue[j+1].priority = temp_priority;
             }
         }
+
     }
-    // Calculating the wait time
-    for(int i = 0 ; i < number_of_processes ; i++){
-        process_queue[i].wait_time = wait_time - process_queue[i].arrival_time;
-        wait_time = wait_time + process_queue[i].burst_time;
+    /*
+        Main algorithm for finding the wait time
+        0. Have a global elapsed time variable
+        1. Start with the first process which have arrived here it's done by sorting the processes based on their arrival time. Mark it as visited and increment the elapsed time with the burst time and set it's wait time as 0.
+        2. For all other elements find the process which
+                a. Haven't been visited
+                b. Has arrived within the elapsed time
+                c. Has the minimum burst time
+        3. Update the found process values and set it's wait time as elapsed time - it's arrival time
+    */
+   for(int i = 0 ; i < number_of_processes ; i++){
+    printf("Elapsed time at %d is %d\n",i,elapsed_time);
+    if(i == 0 && process_queue[i].visited == false){
+        elapsed_time += process_queue[i].burst_time;
+        process_queue[i].wait_time = 0;
+        process_queue[i].visited = true;
+    }else{
+        int max_priority = 9999;
+        int k = 0;
+        for(int j = 0 ; j < number_of_processes ; j++){
+            if(process_queue[j].visited == false && process_queue[j].arrival_time < elapsed_time && process_queue[j].priority < max_priority){
+                max_priority = process_queue[j].priority;
+                k = j;
+            }
+        }
+        printf("pid: %s priority: %D",process_queue[k].process_id,process_queue[k].priority);
+        process_queue[k].wait_time = elapsed_time - process_queue[k].arrival_time;
+        elapsed_time += process_queue[k].burst_time;
+        process_queue[k].visited = true;
     }
+   }
     // Calculating the turn around time
     for(int i = 0 ; i < number_of_processes ; i++){
         process_queue[i].turn_around_time = process_queue[i].burst_time + process_queue[i].wait_time;
     }
     // Printing the table
-    printf("ID\tAT\tBT\tWT\tTAT\n");
+    printf("\nID\tAT\tBT\tWT\tTAT\n");
     for(int i = 0 ; i < number_of_processes ; i++){
         printf("%s\t%d\t%d\t%d\t%d\n",process_queue[i].process_id,process_queue[i].arrival_time,process_queue[i].burst_time,process_queue[i].wait_time,process_queue[i].turn_around_time);
     }
