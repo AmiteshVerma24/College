@@ -30,10 +30,10 @@ int partition(int a[], int start , int end){
     int pIndex = start;
     int temp  = 0;
     for(int i = start; i < end ; i++){
-        if(a[i] <= pivot){
+        if(a[i] < pivot){
             temp = a[i];
-            a[i] = pivot;
-            pivot = temp;
+            a[i] = a[pIndex];
+            a[pIndex] = temp;
             pIndex++;
         }
     }

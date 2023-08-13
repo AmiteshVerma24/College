@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "nQueen",
+            "request": "launch",
+            "mainClass": "nQueen",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
             "name": "queue",
             "request": "launch",
             "mainClass": "queue",

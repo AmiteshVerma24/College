@@ -1,3 +1,7 @@
+/* The goods packages in a supermarket are assigned integer labels. Write a C program to
+sort the set of goods packages based on label identifier using Bubble Sort and determine
+the time required to sort. Plot a graph of number of label identifiers versus time taken. */ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -49,7 +53,6 @@ int main()
     scanf("%d", &size);
     int arr[size];
     random_array(arr, size);
-
     printf("\nArray before sorting is:- ");
     print_array(arr, size);
     start = clock();                                            
@@ -57,7 +60,6 @@ int main()
     end = clock();
     printf("\nArray after sorting is:- ");
     print_array(arr, size);
-    
     total_t = (end - start) / 1000;                        // We get the answer in milli seconds
     printf("\nTime taken to sort array is: %lf", total_t);
     printf("\n==============================================================================\n");
