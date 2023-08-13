@@ -31,8 +31,6 @@ void print_array(int a[], int s)
 
 void random_array(int a[], int s)
 {
-    int num;
-    
     for (int i = 0; i < s; i++)
     {
         a[i] = rand() % s;
@@ -44,20 +42,23 @@ int main()
     clock_t start, end;
     double total_t;
     int size;
+    // Input for array size
     printf("\n==============================================================================\n");
     printf("\nEnter the number of elements in the array:- ");
     scanf("%d", &size);
     int arr[size];
     random_array(arr, size);
-
+    // Printing array before sorting
     printf("\nArray before sorting is:- ");
     print_array(arr, size);
+    // Sorting and noting the time
     start = clock();                                            
     bubble_sort(arr, size);
     end = clock();
+    // Printing array after sorting
     printf("\nArray after sorting is:- ");
     print_array(arr, size);
-    
+    // Calculating total time
     total_t = (end - start) / 1000;                        // We get the answer in milli seconds
     printf("\nTime taken to sort array is: %lf", total_t);
     printf("\n==============================================================================\n");

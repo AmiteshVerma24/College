@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include <stdbool.h>
 #define VERTICES 9
+
 int findMinVertex(int distance_array[],bool visited[]){
     int min = 999;
     int min_index;
@@ -30,6 +31,7 @@ void dijkstra(int graph[VERTICES][VERTICES], int start_vertex){
         int min_index = findMinVertex(distance_array,visited);
         visited[min_index] = true;
         for(int j = 0 ; j < VERTICES ; j++){
+            // This is to select all the reachable nodes froma given nodeand update distance
             if(visited[j] == false && graph[min_index][j] != 0 && distance_array[min_index] + graph[min_index][j] < distance_array[j]){
                 distance_array[j] = distance_array[min_index] + graph[min_index][j];
             }
@@ -42,15 +44,16 @@ void dijkstra(int graph[VERTICES][VERTICES], int start_vertex){
 
 int main()
 {
-    int graph[VERTICES][VERTICES] = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
-                        { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
-                        { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
-                        { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
-                        { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-                        { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
-                        { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
-                        { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
-                        { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
+    int graph[VERTICES][VERTICES] = {   { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
+                                        { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
+                                        { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
+                                        { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
+                                        { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+                                        { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
+                                        { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
+                                        { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
+                                        { 0, 0, 2, 0, 0, 0, 6, 7, 0 }
+                                    };
  
     dijkstra(graph, 0);
     return 0;
