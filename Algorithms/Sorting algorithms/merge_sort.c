@@ -26,7 +26,7 @@ void random_array(int a[], int s)
     
     for (int i = 0; i < s; i++)
     {
-        a[i] = rand() % s;
+        a[i] = rand();
     }
 }
 

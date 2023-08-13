@@ -10,13 +10,13 @@
 int main (void)
 {					   
 	UNLOCKREG();			   // unlock register for programming
-  DrvSYS_Open(48000000);     // set System Clock to run at 48MHz
+    DrvSYS_Open(48000000);     // set System Clock to run at 48MHz
 	LOCKREG();				   // lock register from programming
 
 	DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); // initial GPIO pin GPB11 for controlling Buzzer
 
 	while(1) {
-  DrvGPIO_ClrBit(E_GPB,11); // GPB11 = 0 to turn on Buzzer
+    DrvGPIO_ClrBit(E_GPB,11); // GPB11 = 0 to turn on Buzzer
 	DrvSYS_Delay(100000);	    // Delay 
 	DrvGPIO_SetBit(E_GPB,11); // GPB11 = 1 to turn off Buzzer	
 	DrvSYS_Delay(100000);	    // Delay 		

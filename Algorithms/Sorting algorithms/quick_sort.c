@@ -21,7 +21,7 @@ void random_array(int a[], int s)
     
     for (int i = 0; i < s; i++)
     {
-        a[i] = rand() % s;
+        a[i] = rand();
     }
 }
 
@@ -47,7 +47,7 @@ void quick_sort(int a[], int start, int end )
 {
     if(start < end){
         int pIndex = partition(a, start, end);
-        quick_sort(a,0, pIndex-1);
+        quick_sort(a,start, pIndex-1);
         quick_sort(a,pIndex+1,end);
     }
 }

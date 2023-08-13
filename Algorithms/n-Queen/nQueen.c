@@ -19,39 +19,18 @@ void print_board(bool board[][MAX_SIZE]){
 bool isSafe(bool board[MAX_SIZE][MAX_SIZE], int row, int col){
     // Check vertical
     for(int i = 0 ; i < row ; i++){
-        if(board[i][col]){
-            return false;
-        }
+        if(board[i][col]) return false;
     }
-
     // Check left diagonal
-    int maxLeft;
-    if(row < col){
-        maxLeft = row;
-    }else{
-        maxLeft = col;
+    int maxLeft = row < col ? row : col;
+    for(int i = 1 ; i <= maxLeft ; i++){
+        if(board[row-i][col-i]) return false;
     }
-
-    for (int i = 1; i <= maxLeft; i++) {
-        if(board[row-i][col-i]) {
-            return false;
-        }
+    // Check right diagonal
+    int maxRight = row < MAX_SIZE - col - 1 ? row : MAX_SIZE - col - 1;
+    for(int i = 1 ; i <= maxRight ; i++){
+        if(board[row-i][col+i]) return false;
     }
-
-    // diagonal right
-    int maxRight;
-    if(row < MAX_SIZE - col - 1){
-        maxRight = row;
-    }else{
-        maxRight = MAX_SIZE - col - 1;
-    }
-
-    for (int i = 1; i <= maxRight; i++) {
-        if(board[row-i][col+i]) {
-            return false;
-        }
-    }
-
     return true;
 }
 // Recursive method to find solution
