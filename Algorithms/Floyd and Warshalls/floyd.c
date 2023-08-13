@@ -6,7 +6,7 @@
 void printMatrix(int matrix[][vertices]){
     for(int i = 0 ; i < vertices ; i++){
         for(int j = 0 ; j < vertices ; j++){
-            if(matrix[i][j] == INF || matrix[i][j] == 0) printf("%s  ", "INF");
+            if(matrix[i][j] == INF ) printf("%s  ", "INF");
             else printf("%d    ",matrix[i][j]);
         }
         printf("\n");
@@ -37,10 +37,12 @@ void warshalls(int graph[][vertices] ){
 }
 
 int main(){
-    int graph[vertices][vertices] = {{0, 3, INF, 5},
-             {2, 0, INF, 4},
-             {INF, 1, 0, INF},
-             {INF, INF, 2, 0}};
+    int graph[vertices][vertices] = {
+                                    {0, 8, INF, 1},
+                                    {INF, 0, 1, INF},
+                                    {4, INF, 0, INF},
+                                    {INF, 2, 9, 0}
+                                    };
     printMatrix(graph);
     warshalls(graph);
 }
