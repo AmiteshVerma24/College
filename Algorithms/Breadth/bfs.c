@@ -18,9 +18,11 @@ struct graph * Create_Graph(){
     }
     return g;
 }
+
 void addEdge(int source, int destination, struct graph * g){
     g->adjacency_list[source][destination] = true;
 }
+
 void bfs(struct graph * g, int start_vertex){
     // Declaring the queue
     int queue[VERTICES];

@@ -44,7 +44,6 @@ int horspool(char pattern[], char text[]){
 int main(){
     char text[MAX_SIZE];
 	char pattern[MAX_SIZE];
-    int shiftTable[MAX_SIZE];
 	int found;
 	printf("Enter the source string : ");
 	gets(text);
