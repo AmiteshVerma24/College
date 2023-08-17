@@ -1,0 +1,166 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 Times-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Consider the Book Lending system from the library- BOOKS, STUDENT, BORROWS. The students are allowed to borrow any number of books on a given date from the library. The details of the book should include ISBN, Title of the Book, author, and publisher. All students need not compulsorily borrow books.\
+a) Mention the constraints neatly. \
+b) Design the ER diagram for the problem statement \
+c) State the schema diagram for the ER diagram.\
+\
+
+\f1\b Create table queries:
+\f0\b0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> create table books(\
+    -> bid varchar(5) primary key,\
+    -> title varchar(20),\
+    -> author varchar(20),\
+    -> publisher varchar(20));\
+Query OK, 0 rows affected (0.03 sec)\
+\
+mysql> create table student(\
+    -> sid varchar(5) primary key,\
+    -> sname varchar(20),\
+    -> gender varchar(10));\
+Query OK, 0 rows affected (0.01 sec)\
+\
+mysql> create table borrows(\
+    -> bid varchar(5),\
+    -> sid varchar(5),\
+    -> number int,\
+    -> primary key(bid,sid),\
+    -> foreign key(bid) references books(bid) on delete cascade on update cascade,\
+    -> foreign key(sid) references student(sid) on delete cascade on update cascade);\
+Query OK, 0 rows affected (0.02 sec)\
+\
+
+\f3\b Insert queries:\
+\
+
+\f2\b0 mysql> INSERT INTO books (bid, title, author, publisher)\
+    -> VALUES\
+    ->     ('B001', 'DB Mgmt', 'Smith', 'Tech Pub'),\
+    ->     ('B002', 'Web Dev', 'Brown', 'Coding Bks'),\
+    ->     ('B003', 'Net Basics', 'Johnson', 'Net Pub'),\
+    ->     ('B004', 'Python', 'Williams', 'Tech Pub'),\
+    ->     ('B005', 'AI', 'Johnson', 'AI Press');\
+Query OK, 5 rows affected (0.01 sec)\
+Records: 5  Duplicates: 0  Warnings: 0\
+\
+mysql> INSERT INTO student (sid, sname, gender)\
+    -> VALUES\
+    ->     ('S001', 'Alice', 'Female'),\
+    ->     ('S002', 'Bob', 'Male'),\
+    ->     ('S003', 'Carol', 'Female'),\
+    ->     ('S004', 'David', 'Male'),\
+    ->     ('S005', 'Eva', 'Female');\
+Query OK, 5 rows affected (0.00 sec)\
+Records: 5  Duplicates: 0  Warnings: 0\
+\
+mysql> INSERT INTO borrows (bid, sid, number)\
+    -> VALUES\
+    ->     ('B001', 'S001', 2),\
+    ->     ('B002', 'S002', 1),\
+    ->     ('B001', 'S003', 3),\
+    ->     ('B003', 'S004', 1),\
+    ->     ('B004', 'S001', 2);\
+Query OK, 5 rows affected (0.00 sec)\
+\
+
+\f3\b Select statements:\
+\
+
+\f2\b0 mysql> select * from books;\
++------+------------+----------+------------+\
+| bid  | title      | author   | publisher  |\
++------+------------+----------+------------+\
+| B001 | DB Mgmt    | Smith    | Tech Pub   |\
+| B002 | Web Dev    | Brown    | Coding Bks |\
+| B003 | Net Basics | Johnson  | Net Pub    |\
+| B004 | Python     | Williams | Tech Pub   |\
+| B005 | AI         | Johnson  | AI Press   |\
++------+------------+----------+------------+\
+5 rows in set (0.00 sec)\
+\
+mysql> select * from student;\
++------+-------+--------+\
+| sid  | sname | gender |\
++------+-------+--------+\
+| S001 | Alice | Female |\
+| S002 | Bob   | Male   |\
+| S003 | Carol | Female |\
+| S004 | David | Male   |\
+| S005 | Eva   | Female |\
++------+-------+--------+\
+5 rows in set (0.00 sec)\
+\
+mysql> select * from borrows;\
++------+------+--------+\
+| bid  | sid  | number |\
++------+------+--------+\
+| B001 | S001 |      2 |\
+| B001 | S003 |      3 |\
+| B002 | S002 |      1 |\
+| B003 | S004 |      1 |\
+| B004 | S001 |      2 |\
++------+------+--------+\
+5 rows in set (0.00 sec)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 1. Obtain the names of the student who has borrowed either book bearing ISBN \'91123\'92 or ISBN \'91124\'92.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select * from student where sid in (select sid from borrows where bid="B001" or bid="B002");\
++------+-------+--------+\
+| sid  | sname | gender |\
++------+-------+--------+\
+| S001 | Alice | Female |\
+| S002 | Bob   | Male   |\
+| S003 | Carol | Female |\
++------+-------+--------+\
+3 rows in set (0.00 sec)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 2. Obtain the Names of female students who have borrowed \'93Database\'94 books.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select student.sid,student.sname,student.gender from student join borrows on student.sid = borrows.sid join books on borrows.bid = books.bid where student.gender = "Female" and books.title="DB Mgmt";\
++------+-------+--------+\
+| sid  | sname | gender |\
++------+-------+--------+\
+| S001 | Alice | Female |\
+| S003 | Carol | Female |\
++------+-------+--------+\
+2 rows in set (0.00 sec)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 3. Find the number of books borrowed by each student. Display the student details along with the number of books.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select borrows.sid,count(borrows.number) from borrows join student on student.sid = borrows.sid join books on books.bid = borrows.bid group by borrows.sid;\
++------+-----------------------+\
+| sid  | count(borrows.number) |\
++------+-----------------------+\
+| S001 |                     2 |\
+| S003 |                     1 |\
+| S002 |                     1 |\
+| S004 |                     1 |\
++------+-----------------------+\
+4 rows in set (0.00 sec)}
