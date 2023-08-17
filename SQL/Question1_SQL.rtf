@@ -1,0 +1,192 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25780\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs22 \cf2 \CocoaLigature0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec3 Consider an Employee with a social security number (SSN) working on multiple projects with definite hours for each. Each Employee belongs to a Department. Each project is associated with some domain areas such as Database, Cloud and so on. Each Employee will be assigned to some project. Assume the attributes for Employee and Project relations. \
+a) Mention the constraints neatly.\
+b) Design the ER diagram for the problem statement.\
+c) State the schema diagram for the ER diagram.\
+
+\f0\b\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+Query to create tables:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\b0 mysql> create table department(\
+    -> dept_id varchar(10),\
+    -> dept_name varchar(10),\
+    -> primary key(dept_id)\
+	-> );\
+\
+mysql> create table employee(\
+    -> ssn varchar(4),\
+    -> name varchar(10),\
+    -> hours int,\
+    -> dept_id varchar(10),\
+    -> primary key(ssn)\
+	-> );\
+\
+mysql> create table project(\
+    -> proj_id varchar(10),\
+    -> proj_name varchar(10),\
+    -> proj_domain varchar(10),\
+    -> primary key(proj_id)\
+	-> );\
+\
+mysql> create table works_on(\
+    -> emp_id varchar(4),\
+    -> proj_id varchar(10),\
+    -> primary key(emp_id,proj_id),\
+    -> foreign key(emp_id) references employee(ssn) on update cascade on delete cascade,\
+    -> foreign key(proj_id) references project(proj_id) on update cascade on delete cascade\
+	-> );\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b Query to insert data into these tables:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\b0 \
+\
+mysql> INSERT INTO department (dept_id, dept_name)\
+    -> VALUES\
+    ->     ('D001', 'Dev'),\
+    ->     ('D002', 'Ops'),\
+    ->     ('D003', 'Mktg'),\
+    ->     ('D004', 'Fin'),\
+    ->     ('D005', 'HR');\
+\
+mysql> INSERT INTO employee (ssn, name, hours, dept_id)\
+    -> VALUES\
+    ->     ('1001', 'John', 40, 'D001'),\
+    ->     ('1002', 'Jane', 35, 'D002'),\
+    ->     ('1003', 'Mike', 30, 'D001'),\
+    ->     ('1004', 'Emily', 28, 'D003'),\
+    ->     ('1005', 'David', 42, 'D002');\
+\
+mysql> INSERT INTO project (proj_id, proj_name, proj_domain)\
+    -> VALUES\
+    ->     ('P001', 'DB Project', 'DB'),\
+    ->     ('P002', 'Cloud Proj', 'Cloud'),\
+    ->     ('P003', 'Mktg Camp', 'Mktg'),\
+    ->     ('P004', 'Finance', 'Fin'),\
+    ->     ('P005', 'Training', 'HR');\
+\
+mysql> INSERT INTO works_on (emp_id, proj_id)\
+    -> VALUES\
+    ->     ('1001', 'P001'),\
+    ->     ('1002', 'P001'),\
+    ->     ('1003', 'P002'),\
+    ->     ('1004', 'P003'),\
+    ->     ('1005', 'P003');\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b Select statements:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\b0 mysql> select * from department;\
++---------+-----------+\
+| dept_id | dept_name |\
++---------+-----------+\
+| D001    | Dev       |\
+| D002    | Ops       |\
+| D003    | Mktg      |\
+| D004    | Fin       |\
+| D005    | HR        |\
++---------+-----------+\
+\
+mysql> select * from employee;\
++------+-------+-------+---------+\
+| ssn  | name  | hours | dept_id |\
++------+-------+-------+---------+\
+| 1001 | John  |    40 | D001    |\
+| 1002 | Jane  |    35 | D002    |\
+| 1003 | Mike  |    30 | D001    |\
+| 1004 | Emily |    28 | D003    |\
+| 1005 | David |    42 | D002    |\
++------+-------+-------+---------+\
+\
+mysql> select * from project;\
++---------+------------+-------------+\
+| proj_id | proj_name  | proj_domain |\
++---------+------------+-------------+\
+| P001    | DB Project | DB          |\
+| P002    | Cloud Proj | Cloud       |\
+| P003    | Mktg Camp  | Mktg        |\
+| P004    | Finance    | Fin         |\
+| P005    | Training   | HR          |\
++---------+------------+-------------+\
+\
+mysql> select * from works_on;\
++--------+---------+\
+| emp_id | proj_id |\
++--------+---------+\
+| 1001   | P001    |\
+| 1002   | P001    |\
+| 1003   | P002    |\
+| 1004   | P003    |\
+| 1005   | P003    |\
++--------+---------+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec3 1. Obtain the details of employees assigned to \'93Database\'94 project.
+\f2\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+mysql> select * from employee where ssn in (select emp_id from works_on where proj_id = (select proj_id from project where proj_name = "DB Project"));\
++------+------+-------+---------+\
+| ssn  | name | hours | dept_id |\
++------+------+-------+---------+\
+| 1001 | John |    40 | D001    |\
+| 1002 | Jane |    35 | D002    |\
++------+------+-------+---------+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec3 2. Find the number of employees working in each department with department details.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select dept_id,count(*) as count from employee group by dept_id;\
++---------+-------+\
+| dept_id | count |\
++---------+-------+\
+| D001    |     2 |\
+| D002    |     2 |\
+| D003    |     1 |\
++---------+-------+\
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 3. Update the Project details of Employee bearing SSN = #SSN to ProjectNo = #Project_No and display the same.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> update works_on set proj_id="P002" where emp_id="1001";\
+Query OK, 1 row affected (0.01 sec)\
+Rows matched: 1  Changed: 1  Warnings: 0\
+\
+mysql> select * from works_on;\
++--------+---------+\
+| emp_id | proj_id |\
++--------+---------+\
+| 1002   | P001    |\
+| 1001   | P002    |\
+| 1003   | P002    |\
+| 1004   | P003    |\
+| 1005   | P003    |\
++--------+---------+\
+}

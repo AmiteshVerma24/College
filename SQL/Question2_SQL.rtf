@@ -1,0 +1,170 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 Times-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Consider the relations: PART, SUPPLIER and SUPPLY. The Supplier relation holds information about suppliers. The attributes SID, SNAME, SADDR describes the supplier. The Part relation holds the attributes such as PID, PNAME and PCOLOR. The Shipment relation holds information about shipments that include SID and PID attributes identifying the supplier of the shipment and the part shipped, respectively. The Shipment relation should contain information on the number of parts shipped. \
+a) Mention the constraints neatly.\
+b) Design the ER diagram for the problem statement\
+c) State the schema diagram for the ER diagram.\
+\
+
+\f1\b Create table queries:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\b0\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> create table supplier(\
+    -> sid varchar(5),\
+    -> sname varchar(20),\
+    -> saddr varchar(20),\
+    -> primary key(sid));\
+\
+mysql> create table part(\
+    -> pid varchar(5) primary key,\
+    -> pname varchar(20),\
+    -> pcolor varchar(10));\
+\
+mysql> create table shipment(\
+    -> sid varchar(5),\
+    -> pid varchar(5),\
+    -> primary key(sid,pid),\
+    -> foreign key(sid) references supplier(sid) on delete cascade on update cascade,\
+    -> foreign key(pid) references part(pid) on delete cascade on update cascade);\
+\
+
+\f3\b Insert queries:\
+\
+
+\f2\b0 mysql> INSERT INTO supplier (sid, sname, saddr)\
+    -> VALUES\
+    ->     ('S001', 'Supplier 1', '123 Main St'),\
+    ->     ('S002', 'Supplier 2', '456 Elm St'),\
+    ->     ('S003', 'Supplier 3', '789 Oak St'),\
+    ->     ('S004', 'Supplier 4', '101 Pine St'),\
+    ->     ('S005', 'Supplier 5', '202 Maple St');\
+\
+mysql> INSERT INTO part (pid, pname, pcolor)\
+    -> VALUES\
+    ->     ('P001', 'Part 1', 'Red'),\
+    ->     ('P002', 'Part 2', 'Blue'),\
+    ->     ('P003', 'Part 3', 'Green'),\
+    ->     ('P004', 'Part 4', 'Yellow'),\
+    ->     ('P005', 'Part 5', 'Black');\
+\
+mysql> INSERT INTO shipment (sid, pid)\
+    -> VALUES\
+    ->     ('S001', 'P001'),\
+    ->     ('S001', 'P002'),\
+    ->     ('S002', 'P001'),\
+    ->     ('S003', 'P003'),\
+    ->     ('S004', 'P004'),\
+    ->     ('S004', 'P005');\
+\
+
+\f3\b Select statements:\
+
+\f2\b0 mysql> select * from part;\
++------+--------+--------+\
+| pid  | pname  | pcolor |\
++------+--------+--------+\
+| P001 | Part 1 | Red    |\
+| P002 | Part 2 | Blue   |\
+| P003 | Part 3 | Green  |\
+| P004 | Part 4 | Yellow |\
+| P005 | Part 5 | Black  |\
++------+--------+--------+\
+5 rows in set (0.00 sec)\
+\
+mysql> select * from supplier;\
++------+------------+--------------+\
+| sid  | sname      | saddr        |\
++------+------------+--------------+\
+| S001 | Supplier 1 | 123 Main St  |\
+| S002 | Supplier 2 | 456 Elm St   |\
+| S003 | Supplier 3 | 789 Oak St   |\
+| S004 | Supplier 4 | 101 Pine St  |\
+| S005 | Supplier 5 | 202 Maple St |\
++------+------------+--------------+\
+5 rows in set (0.00 sec)\
+\
+mysql> select * from shipment;\
++------+------+\
+| sid  | pid  |\
++------+------+\
+| S001 | P001 |\
+| S002 | P001 |\
+| S001 | P002 |\
+| S003 | P003 |\
+| S004 | P004 |\
+| S004 | P005 |\
++------+------+\
+6 rows in set (0.00 sec)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 1. Obtain the details of parts supplied by supplier #SNAME.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select * from part where pid in (select pid from shipment where sid = (select sid from supplier where sname = "Supplier 1"));\
++------+--------+--------+\
+| pid  | pname  | pcolor |\
++------+--------+--------+\
+| P001 | Part 1 | Red    |\
+| P002 | Part 2 | Blue   |\
++------+--------+--------+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 2. Obtain the Names of suppliers who supply #PNAME.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> select * from supplier where sid in (select sid from shipment where pid = (select pid from part where pname = "Part 1"));\
++------+------------+-------------+\
+| sid  | sname      | saddr       |\
++------+------------+-------------+\
+| S001 | Supplier 1 | 123 Main St |\
+| S002 | Supplier 2 | 456 Elm St  |\
++------+------------+-------------+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec2 3. Delete the parts which are in #PCOLOR.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 mysql> delete from part where pcolor = "Red";\
+Query OK, 1 row affected (0.00 sec)\
+\
+mysql> select * from part;\
++------+--------+--------+\
+| pid  | pname  | pcolor |\
++------+--------+--------+\
+| P002 | Part 2 | Blue   |\
+| P003 | Part 3 | Green  |\
+| P004 | Part 4 | Yellow |\
+| P005 | Part 5 | Black  |\
++------+--------+--------+\
+4 rows in set (0.00 sec)\
+\
+mysql> select * from shipment;\
++------+------+\
+| sid  | pid  |\
++------+------+\
+| S001 | P002 |\
+| S003 | P003 |\
+| S004 | P004 |\
+| S004 | P005 |\
++------+------+\
+4 rows in set (0.00 sec)\
+}
