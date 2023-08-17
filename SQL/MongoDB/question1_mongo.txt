@@ -1,0 +1,18 @@
+// Creating collection
+db.createCollection("department");
+
+// Inserting data into collection
+db.department.insertMany([
+    { id: 1, name: 'Mahesh', dept_name: 'ISE', project_num: 10 },
+    { id: 2, name: 'Rakesh', dept_name: 'CSE', project_num: 11 },
+    { id: 3, name: 'Sonia', dept_name: 'ISE', project_num: 12 }
+])
+
+// Printing all the values in collection
+db.department.find().pretty();
+
+// Finding based on department name
+db.department.find({"dept_name":'ISE'}).pretty();
+
+// Finding based on project number
+db.department.find({"project_num":11}).pretty();
