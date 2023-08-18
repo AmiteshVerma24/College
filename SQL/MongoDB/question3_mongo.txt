@@ -1,0 +1,66 @@
+db.createCollection("BOATMANAGEMENT")
+
+// Define an array of documents to insert
+var documentsToInsert = [
+  {
+    "BID": 9989,
+    "BNAME": "DEF",
+    "COLOUR": "Blue",
+    "SNAME": "Alice",
+    "SID": 5678,
+    "DAY": "2023-01-15"
+  },
+  {
+    "BID": 9990,
+    "BNAME": "GHI",
+    "COLOUR": "Red",
+    "SNAME": "Bob",
+    "SID": 9012,
+    "DAY": "2023-05-20"
+  },
+  {
+    "BID": 9991,
+    "BNAME": "JKL",
+    "COLOUR": "Green",
+    "SNAME": "Carol",
+    "SID": 3456,
+    "DAY": "2023-08-10"
+  },
+  {
+    "BID": 9992,
+    "BNAME": "MNO",
+    "COLOUR": "Yellow",
+    "SNAME": "David",
+    "SID": 7890,
+    "DAY": "2023-03-30"
+  },
+  {
+    "BID": 9993,
+    "BNAME": "PQR",
+    "COLOUR": "Orange",
+    "SNAME": "Eve",
+    "SID": 2345,
+    "DAY": "2023-06-18"
+  },
+  {
+    "BID": 9994,
+    "BNAME": "BOA",
+    "COLOUR": "Red",
+    "SNAME": "Eve",
+    "SID": 2345,
+    "DAY": "2023-07-18"
+  }
+];
+
+// Insert the array of documents into the collection
+db.BOATMANAGEMENT.insertMany(documentsToInsert);
+
+// Print the data
+db.BOATMANAGEMENT.find().pretty();
+
+// Obtain the number of boats obtained by sailor :#Sailor_Name
+db.BOATMANAGEMENT.find({"SNAME":"Eve"}).count();
+
+// Retrieve boats of color :”#color”
+db.BOATMANAGEMENT.find({"COLOUR":"Red"}).pretty();
+

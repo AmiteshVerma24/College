@@ -13,5 +13,10 @@
 -> db.collection_name.find().pretty()           // Here pretty() is used to increase readability
 
 4. Print based on some condition
--> db.collection_name.find({"id":'2'}).pretty()
+-> db.collection_name.find({"id":2}).pretty()
+
+5. Update the collection
+-> db.collection_name.update({"id":2},{$set:{"id":3,"name":"Kamlesh"}},{multi:true})
+
+
 

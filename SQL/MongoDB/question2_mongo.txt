@@ -1,0 +1,30 @@
+// Create collection
+db.createCollection("SUPPLYINFO");
+// Insert values
+db.SUPPLYINFO.insert({
+  "PNO": 1947,
+  "Pname": "bolts",
+  "Colour": "Black",
+  "SNO": 1234,
+  "Sname": "ABC",
+  "Address": "blore"
+});
+
+db.SUPPLYINFO.insert({
+  "PNO": 1950,
+  "Pname": "chain",
+  "Colour": "Blue",
+  "SNO": 4567,
+  "Sname": "DEF",
+  "Address": "chen"
+});
+// Display all
+db.SUPPLYINFO.find().pretty();
+// Update values based on PNO
+db.SUPPLYINFO.update({"PNO":1950},{$set:{"Pname":"New name","Sname":"New Sname"}},{multi: true})
+
+db.SUPPLYINFO.find().pretty();
+// Find details based on PNO
+db.SUPPLYINFO.find({"PNO":1947}).pretty();
+
+

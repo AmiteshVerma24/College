@@ -1,0 +1,57 @@
+// Define an array of documents to insert
+var documentsToInsert = [
+  {
+    "ISBN": 2234,
+    "TITLE": "programming",
+    "AUTHOR": "GHI",
+    "PUBLISHER": "pearson",
+    "Student Name": "Sita",
+    "SSN": 2017
+  },
+  {
+    "ISBN": 2235,
+    "TITLE": "networking",
+    "AUTHOR": "JKL",
+    "PUBLISHER": "wiley",
+    "Student Name": "Ramesh",
+    "SSN": 2018
+  },
+  {
+    "ISBN": 2236,
+    "TITLE": "dbms",
+    "AUTHOR": "MNO",
+    "PUBLISHER": "springer",
+    "Student Name": "Priya",
+    "SSN": 2019
+  },
+  {
+    "ISBN": 2237,
+    "TITLE": "dbms",
+    "AUTHOR": "PQR",
+    "PUBLISHER": "elsevier",
+    "Student Name": "Kiran",
+    "SSN": 2020
+  },
+  {
+    "ISBN": 2238,
+    "TITLE": "web development",
+    "AUTHOR": "XYZ",
+    "PUBLISHER": "oreilly",
+    "Student Name": "Amit",
+    "SSN": 2021
+  }
+];
+// Create collection
+db.createCollection("LIBRARY");
+
+// Insert the array of documents into the collection
+db.LIBRARY.insertMany(documentsToInsert);
+
+// Print details
+db.LIBRARY.find().pretty();
+
+// Obtain the book details authored by “author_name”
+db.LIBRARY.find({"AUTHOR":"XYZ"}).pretty();
+
+// Obtain the Names of students who have borrowed “Database” books.
+db.LIBRARY.find({"TITLE":"dbms"}).pretty();
