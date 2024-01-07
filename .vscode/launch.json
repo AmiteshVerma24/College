@@ -3,6 +3,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.thirdquestion.Main",
+            "projectName": "third_question"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.thirdquestion.com.thirdquestion.Main",
+            "projectName": "third_question"
+        },
+        {
+            "type": "java",
+            "name": "BookDatabase",
+            "request": "launch",
+            "mainClass": "com.thirdquestion.BookDatabase",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.thirdquestion.Main",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
             "name": "Question2",
             "request": "launch",
             "mainClass": "Question2",
