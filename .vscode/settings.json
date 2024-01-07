@@ -8,7 +8,8 @@
         "OOPS_Java/12.Twelth Question",
         "OOPS_Java/10.Tenth Question",
         "OOPS_Java/1.First Question",
-        "Algorithms/n-Queen"
+        "Algorithms/n-Queen",
+        "Java_Lab/1.FirstQuestion"
     ],
     "files.associations": {
         "uart.C": "cpp"

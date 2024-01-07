@@ -3,6 +3,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Question1",
+            "request": "launch",
+            "mainClass": "Question1",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
+            "name": "FirstQuestion",
+            "request": "launch",
+            "mainClass": "FirstQuestion",
+            "projectName": "college_8bd5001b"
+        },
+        {
+            "type": "java",
             "name": "nQueen",
             "request": "launch",
             "mainClass": "nQueen",
