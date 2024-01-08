@@ -35,9 +35,7 @@ class Book {
 }
 public class BookDatabase{
     ArrayList<Book> book_database = new ArrayList<>();
-    public static void main(String[] args) {
-        
-    }
+    
     public void add_book(int bookId, String title, String author, String publisher, double price){
         Book new_book = new Book(bookId, title, author, publisher, price);
         book_database.add(new_book);
@@ -46,6 +44,7 @@ public class BookDatabase{
         String str_to_return = "";
         for (Book book : book_database) {
             str_to_return += book.toString();
+            System.out.println(book);
         }
         return str_to_return;
     }

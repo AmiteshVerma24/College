@@ -147,10 +147,6 @@ public class Main {
     public static void main(String[] args) {
         BookDatabase db = new BookDatabase();
         setup_layout(db);
-        // db.display_books();
-        // db.sort_books();
-        // db.get_books_by_author_name("author2");
-        // db.new_list_with_price_greater_than(200);
         
     } 
 
