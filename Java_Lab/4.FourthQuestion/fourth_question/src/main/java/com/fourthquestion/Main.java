@@ -74,7 +74,6 @@ public class Main {
         panel.add(submitButton);
         panel.add(displayLabel);
         panel.add(displayButton);
-        frame.add(panel);
         frame.add(tabbedPane);
         tabbedPane.addTab("Main tab", panel);
         frame.setSize(600, 400);
