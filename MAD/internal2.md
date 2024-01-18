@@ -4,6 +4,8 @@
 3. Guard statement
 4. Optionals
 5. Structs
+6. Structures vs Classes
+7. Typecasting
 
 ## Variable declaration
 In Swift, `var` and `let` are used for variable and constant declarations, respectively. Here are some additional details:
@@ -67,7 +69,6 @@ let pi = 3.14 // Swift infers 'pi' as Double
 ```
 
 
-Certainly! Here's a summary of the provided information:
 
 ### Variable Shadowing in Swift:
 
