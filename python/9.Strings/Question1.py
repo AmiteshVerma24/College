@@ -4,9 +4,19 @@
 # of the string is the reverse of the other half or if a string appears same when
 # read forward or backward. 
 
-str = "racecr"
-str_to_compare = str[::-1]
-if(str == str_to_compare):
-    print("Palindrome")
-else:
-    print("Not palindrome")
+str = "racecar"
+def is_palindrome():
+    str_to_compare = str[::-1]
+    if(str == str_to_compare):
+        print("Palindrome")
+    else:
+        print("Not palindrome")
+def is_symmetric():
+    length = len(str)
+    to_return = str[:length // 2:] == str[length // 2:]
+    if(to_return):
+        print("Symmetric")
+    else:
+        print("Not symmetric")
+is_palindrome()
+is_symmetric()
