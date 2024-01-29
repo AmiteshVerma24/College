@@ -1,3 +1,10 @@
+# Write a program to do the following operations:
+# o Create a empty dictionary with dict() method
+# o Add elements one at a time
+# o Update existing key‟s value
+# o Access an element using a key and also get() method
+# o Deleting a key value using del() method 
+
 # Create an empty dictionary
 my_dict = dict()
 
@@ -27,7 +34,7 @@ else:
 # Deleting a key-value pair using del() method
 key_to_delete = 'b'
 if key_to_delete in my_dict:
-    del my_dict[key_to_delete]
+    del(my_dict[key_to_delete])
     print(f"Key '{key_to_delete}' and its value have been deleted from the dictionary.")
 else:
     print(f"Key '{key_to_delete}' not found in the dictionary.")

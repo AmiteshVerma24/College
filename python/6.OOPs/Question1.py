@@ -1,3 +1,6 @@
+# Create a class called CAR, data members ( model_name, color, price, top_speed)
+# method: read above details using constructor (__int__) and without constructor.
+# Display above detail 
 class car:
     def __init__(self, model_name, color, price, top_speed):
         self.model_name = model_name

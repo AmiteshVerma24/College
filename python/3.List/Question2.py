@@ -2,6 +2,14 @@
 
 lst = []
 n = int(input("Enter the number of elements: "))
+odd, even = 0, 0
 for i in range (0, n):
     ele = int(input(f"Enter the element at index {i+1}: "))
     lst.append(ele)
+for num in lst:
+    if(num % 2 == 0):
+        even += num
+    else:
+        odd += num
+print("Sum of Odd is: ", odd)
+print("Sum of even is: ", even)
