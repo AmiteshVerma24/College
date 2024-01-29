@@ -1,27 +1,26 @@
 # Create a class called CAR, data members ( model_name, color, price, top_speed)
 # method: read above details using constructor (__int__) and without constructor.
 # Display above detail 
-class car:
-    def __init__(self, model_name, color, price, top_speed):
+class Car:
+    def __init__(self, model_name = "", color = "", price = "", top_speed = ""):
         self.model_name = model_name
         self.color = color
         self.price = price
         self.top_speed = top_speed
     def display(self):
-        print("Model name: ", self.model_name)
-        print("Colour: ", self.color)
+        print("Model: ", self.model_name)
+        print("Color: ", self.color)
         print("Price: ", self.price)
-        print("Top speed: ", self.top_speed)
-        print("\n")
+        print("Top Speed: ", self.top_speed)
+        print()
+# With constructor
+car1 = Car("Model 1", "Color 1", "Price 1", "Top Speed 1")
+# Without constructor
+car2 = Car()
+car2.model_name = "Model 2"
+car2.color = "Color 2"
+car2.price = "Price 2"
+car2.top_speed = "Top Speed 2"
 
-# With __init__
-my_car_1 = car("Apache", "White", 1000, 180)
-my_car_1.display()
-# Without __init__
-my_car_2 = car
-my_car_2.model_name = "Nexon"
-my_car_2.color = "White"
-my_car_2.price = 2000
-my_car_2.top_speed = 150
-my_car_2.display(my_car_2)
-
+car1.display()
+car2.display()

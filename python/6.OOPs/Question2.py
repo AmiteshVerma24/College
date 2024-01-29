@@ -28,7 +28,7 @@ class private_bank(bank):
         print("\n")
 
 gov = govt_bank("SBI", 3500, "Peenya", "SBI@123")
-pvt = private_bank("Abix bank", 1500, "Hebbal", "AXIS@123")
+pvt = private_bank("Axis bank", 1500, "Hebbal", "AXIS@123")
 
 gov.display()
 pvt.display()
