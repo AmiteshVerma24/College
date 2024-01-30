@@ -1,4 +1,7 @@
 import java.util.*;
+// Create an array list of Students (with fields such as name, USN, Dept, section, CGPA). Search for the students with
+// CGPA > 8.5. Print the student details belonging to ‘ISE’ department. Print students belonging to ‘C’ section. Use
+// Iterator to iterate through the list.
 
 public class Question1 {
     private static class Student{
@@ -10,6 +13,29 @@ public class Question1 {
             this.department = department;
             this.section = section;
             this.cgpa = cgpa;
+        }
+    }
+    public static void CGPA(ArrayList<Student> arr){
+        Iterator<Student> itr = arr.iterator();
+        System.out.println("Students with CGPA greater than 8.5:- ");
+        while (itr.hasNext()) {
+            Student element = itr.next();
+            if(element.cgpa > 8.5){
+                System.out.format("Name:- %s\nUSN:- %s\nDepartment:- %s\nSection:- %s\nCGPA:- %f\n____________________________________________________\n",
+                        element.name, element.usn, element.department, element.section, element.cgpa);
+            }
+        }
+    }
+    public static void CSection(ArrayList<Student> arr){
+        Iterator<Student> itr = arr.iterator();
+        System.out.println("Students in C section:- ");
+        itr = arr.iterator();
+        while (itr.hasNext()) {
+            Student element = itr.next();
+            if(element.section.equalsIgnoreCase("C")){
+                System.out.format("____________________________________________________\nName:- %s\nUSN:- %s\nDepartment:- %s\nSection:- %s\nCGPA:- %f\n____________________________________________________\n",
+                        element.name, element.usn, element.department, element.section, element.cgpa);
+            }
         }
     }
     public static void main(String[] args) {
@@ -43,24 +69,9 @@ public class Question1 {
                     break;
             }
         }
-        Iterator<Student> itr = arr.iterator();
-        System.out.println("Students with CGPA greater than 8.5:- ");
-        while (itr.hasNext()) {
-            Student element = itr.next();
-            if(element.cgpa > 8.5){
-                System.out.format("Name:- %s\nUSN:- %s\nDepartment:- %s\nSection:- %s\nCGPA:- %f\n____________________________________________________\n",
-                element.name, element.usn, element.department, element.section, element.cgpa);
-            }
-        }
-        System.out.println("Students in C section:- ");
-        itr = arr.iterator();
-        while (itr.hasNext()) {
-            Student element = itr.next();
-            if(element.section.equalsIgnoreCase("C")){
-                System.out.format("____________________________________________________\nName:- %s\nUSN:- %s\nDepartment:- %s\nSection:- %s\nCGPA:- %f\n____________________________________________________\n",
-                element.name, element.usn, element.department, element.section, element.cgpa);
-            }
-        }
+
+        CGPA(arr);
+        CSection(arr);
         sc.close();
     }
 

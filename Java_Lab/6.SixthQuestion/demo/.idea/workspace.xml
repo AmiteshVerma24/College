@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd713067-b944-4323-9574-49b60eb7fada" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/Java_Lab.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../1.FirstQuestion/1.FirstQuestion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/3.ThirdQuestion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../1.FirstQuestion/Question1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../1.FirstQuestion/Question1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.SecondQuestion/Question2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2.SecondQuestion/Question2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/src/main/java/com/thirdquestion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/src/main/java/com/thirdquestion/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/BookDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/BookDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../3.ThirdQuestion/third_question/target/classes/com/thirdquestion/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/src/main/java/com/fourthquestion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../4.FourthQuestion/fourth_question/src/main/java/com/fourthquestion/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2bg84j6AtcbhEFkgsRQpnkIuYrw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-azul-20.0.2-f644763e9732-2383794a" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd713067-b944-4323-9574-49b60eb7fada" name="Changes" comment="" />
+      <created>1706625172721</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706625172721</updated>
+    </task>
+    <servers />
+  </component>
+</project>

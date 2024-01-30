@@ -1,5 +1,12 @@
 import java.util.*;
 
+// Write a Program that simulates a telephone that records missed incoming calls in
+// lists. Maintain the phone callers list in hashmap . For each missed call , telephone
+// number of origin, and name of the caller if the name is available. For unlisted
+// numbers, set the name to “private caller”. Missed calls have to be maintained in the
+// order they arrive. User goes through the missed call list and can decide to delete the
+// call or display the call details.
+
 public class Question2 {
     public static void main(String[] args) {
         // First entry = Ph.no, Second entry = Name
@@ -7,6 +14,7 @@ public class Question2 {
         // Adding missed calls
         addMissedCall(call_log, "123", "Amitesh");
         addMissedCall(call_log, "456", "Aditya");
+        addMissedCall(call_log, "46", "Binod");
         addMissedCall(call_log, "789", null);
         // Display names that start with A
         System.out.println(call_log);
@@ -20,10 +28,10 @@ public class Question2 {
         call_log.put(number, name);
     }
     private static void nameStartWithA(HashMap<String, String> call_log){
-        System.out.println("Names of caller starting with A are: ");
-        call_log.forEach((key, value) -> {
-            if(value.startsWith("A") || value.startsWith("a")){
-                System.out.println("Name: " + value + ", Number: " + key);
+        System.out.println("Displaying details of people whose name start with A");
+        call_log.forEach((number, name) -> {
+            if(name.startsWith("A") || name.startsWith("a")){
+                System.out.format("Name:- %s and Number:- %s\n",name,number);
             }
         });
     }
