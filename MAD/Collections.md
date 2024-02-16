@@ -40,3 +40,59 @@ In Swift, collections are used to store multiple values of the same type in an o
      ```
 
 Each collection type in Swift has its own set of methods and properties for performing operations like adding, removing, accessing elements, iterating, and more. Understanding when and how to use each type of collection is essential for writing efficient and maintainable Swift code.
+
+
+**Creating arrays and array methods**
+
+1. **Creating Arrays:**
+   - Using type-annotation:
+     ```swift
+     var myArray: [Int] = []
+     ```
+   - Using special collection type annotation:
+     ```swift
+     var myArray: Array<Int> = []
+     ```
+   - Using array initializer:
+     ```swift
+     var myArray = [Int]()
+     ```
+
+2. **Initializing Arrays with Default Values:**
+   - To initialize an array with default values:
+     ```swift
+     var myArray = [Int](repeating: 0, count: 100)
+     ```
+
+3. **Accessing Array Properties:**
+   - To find the number of items within an array, use the `count` property:
+     ```swift
+     print(myArray.count)
+     ```
+   - To check if an array contains any elements, use the `isEmpty` property:
+     ```swift
+     if myArray.isEmpty {
+         // Array is empty
+     }
+     ```
+
+4. **Adding Elements to an Array:**
+   - To append elements to the end of an array, use the `append(_:)` method:
+     ```swift
+     var names = ["Iron Man", "Captain America", "Black Widow", "Thor", "Hulk"]
+     names.append("Black Panther")
+     ```
+   - To insert an element at a specific index, use the `insert(_:at:)` method:
+     ```swift
+     names.insert("Hawkeye", at: 2)
+     ```
+
+5. **Removing Elements from an Array:**
+   - To remove all elements from an array, use the `removeAll()` method:
+     ```swift
+     names.removeAll()
+     ```
+   - To remove and return the first element, use the `removeFirst()` method.
+   - To remove and return the last element, use the `removeLast()` method.
+
+These are some of the fundamental operations you can perform on arrays in Swift. Arrays are versatile data structures that allow for efficient storage and manipulation of ordered collections of elements.
