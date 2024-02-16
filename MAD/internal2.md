@@ -198,6 +198,32 @@ func singHappyBirthday() {
 
     print("Happy Birthday to you!")
 }
+
+
+
+// Another example
+func validateAge(age: Int?) {
+    // Using guard to check if age is nil
+    guard let age = age else {
+        print("Age is nil.")
+        return // Exit the function if age is nil
+    }
+    
+    // Using guard to check if age is greater than or equal to 18
+    guard age >= 18 else {
+        print("You must be at least 18 years old.")
+        return // Exit the function if age is less than 18
+    }
+    
+    // If age passes both guard conditions, print a success message
+    print("Welcome! You are \(age) years old.")
+}
+
+// Example usage:
+validateAge(age: 25) // Output: "Welcome! You are 25 years old."
+validateAge(age: nil) // Output: "Age is nil."
+validateAge(age: 15) // Output: "You must be at least 18 years old."
+
 ```
 
 **Advantages of Guard Statements:**
