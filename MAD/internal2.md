@@ -291,6 +291,18 @@ if let unwrappedResult = result {
 } else {
     print("Cannot divide by zero.")
 }
+
+Struct Book {
+var name:String
+var publicationYear:Int?
+}
+if book3.publicationYear != nil {
+actualPublicationYear = book3.publicationYear!
+print(“Publication year of \(book3.name) is \(actualPublicationYear)”)
+}
+if let publicationYear = book3.publicationYear {
+ print(“Publication year of \(book3.name) is \(publicationYear)”)
+}
 ```
 
 In this example, the `divide` function takes two parameters and returns an optional `Double`. If the divisor is zero, the function returns nil to indicate an invalid operation.
