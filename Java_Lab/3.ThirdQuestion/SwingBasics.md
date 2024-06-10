@@ -22,3 +22,8 @@
     ```
     JOptionPane.showMessageDialog(panel_name, string_to_show);
     ```
+6. Drop down
+   ```
+   String [] options = {"0 - 10000", "10000 - 30000", "30000 - 60000", "60000 - 100000"};
+   JComboBox<String> payscale = new JComboBox<>(options);
+   ```

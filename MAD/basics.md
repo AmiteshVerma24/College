@@ -28,6 +28,15 @@ while counter < 5 {
     print("Counting: \(counter)")
     counter += 1
 }
+
+// Repeat while
+var count = 0
+var roll = 0
+repeat {
+ roll = Int.random(in: 0...5)
+ count += 1
+ print("After rolls \(count), roll is \(roll)")
+} while roll > 0 
 ```
 
 This loop prints the counting values from 0 to 4 because it stops when the condition `counter < 5` becomes false.
