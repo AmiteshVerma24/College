@@ -18,3 +18,7 @@
     - JComboBox: A drop-down list of items.
     - JTextArea: A multi-line area for displaying/editing text.
     - JScrollPane: A scrollable view of another component.
+5. To add a popup
+    ```
+    JOptionPane.showMessageDialog(panel_name, string_to_show);
+    ```
