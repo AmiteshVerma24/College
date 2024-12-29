@@ -33,6 +33,7 @@ class Book {
                 + ", Price: " + price + "\n";
     }
 }
+
 public class BookDatabase{
     ArrayList<Book> book_database = new ArrayList<>();
     
@@ -40,6 +41,7 @@ public class BookDatabase{
         Book new_book = new Book(bookId, title, author, publisher, price);
         book_database.add(new_book);
     }
+
     public String display_books(){
         String str_to_return = "";
         for (Book book : book_database) {
@@ -48,11 +50,13 @@ public class BookDatabase{
         }
         return str_to_return;
     }
+
     public void sort_books(){
         Collections.sort(book_database, (book1, book2) -> Double.compare(book1.getPrice(), book2.getPrice()));
         System.out.println("Books in sorted order of their prices are:- ");
         display_books();
     }
+
     public String get_books_by_author_name(String author){
         String str_to_return = "";
         System.out.format("Books of the author %s are:- \n", author);
@@ -65,6 +69,7 @@ public class BookDatabase{
         }
         return str_to_return;
     }
+    
     public String new_list_with_price_greater_than(int price){
         ArrayList<Book> new_arr = new ArrayList<>();
         for (Book book : book_database) {

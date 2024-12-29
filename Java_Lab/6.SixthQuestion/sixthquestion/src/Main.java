@@ -20,6 +20,7 @@ public class Main {
         JLabel familyMembersLabel = new JLabel("Enter the number of family members");
         JTextField familyMembersTextField = new JTextField(); 
         JLabel payscaleLabel = new JLabel("Select the payscale");
+        // Imp
         JComboBox<String> payscale = new JComboBox<>(options);
         JButton addEmployeeButton = new JButton("Add employee");
         addEmployeeButton.addActionListener(new ActionListener() {
